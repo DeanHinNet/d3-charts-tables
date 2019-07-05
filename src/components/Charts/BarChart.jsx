@@ -1,7 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
 
-class DualBarChart extends React.Component {
+class BarChart extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -14,7 +14,7 @@ class DualBarChart extends React.Component {
     const { properties } = this.props
     const { width, height, margin } = properties
 
-    this.container = d3.select('#dualBarChart')
+    this.container = d3.select('#barChart')
     .append('svg')
     .attr('width', width)
     .attr('height', height)
@@ -79,12 +79,6 @@ class DualBarChart extends React.Component {
         return d.value.male > d.value.female ? d.value.male : d.value.female
       }
     })])
-    
-   
-    //var xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding)
-
-    // const g = svg.append('g')
-    // .attr('transform', `translate(${margin.left},${margin.top})`)
    
     const model_name = this.container.selectAll('.model_name')
       .data(barData)
@@ -93,8 +87,6 @@ class DualBarChart extends React.Component {
       .attr('href', '')
       .attr('class', 'model_name')
       .attr('transform', d => `translate(${xScale0(d.key)},0)`)
-
-    /* Add field1 bars */
 
     fields.forEach((field)=>{
       model_name.selectAll(`.bar.${field.name}`)
@@ -183,10 +175,10 @@ class DualBarChart extends React.Component {
   render() {
     return(
         <div className='container-chart'> 
-          <div id='dualBarChart'></div>
+          <div id='barChart'></div>
         </div>
     )
   }
 }
 
-export default DualBarChart
+export default BarChart

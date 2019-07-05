@@ -23,7 +23,6 @@ class Table extends React.Component {
     .attr('class', this.selectedClass)
   }
   selectedClass(d){
-
     if(d.selected){
       return 'row selected'
     } else {
@@ -56,8 +55,6 @@ class Table extends React.Component {
         d3.event.stopPropagation()
  
         this.setState( prevState => {
-        
-
           return {chartData: prevState.chartData.map(entry=>{
             return entry.name === d.name
             ? {
@@ -80,6 +77,12 @@ class Table extends React.Component {
       .append('td')
       .html(row => row.html)
       .attr('class', row => row.classname)
+    
+      this.table.selectAll('.row .link')
+      .on('click', (d)=>{
+        console.log('row link')
+        d3.event.stopPropagation()
+      })
   }
 
   render() {

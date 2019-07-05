@@ -25,9 +25,13 @@ class Home extends React.Component {
   }
   componentDidMount(){
     d3.csv(csv, (rows) => {
+      if(rows['Name/Alias'] === ''){
+        return rows['URL'] ? {...rows, ['Name/Alias']: rows['URL']} : '-'
+      }
       return rows
     })
     .then(datacsv=>{
+      console.log('datacsv:', datacsv)
       this.setState({
         datacsv
       })

@@ -43,7 +43,7 @@ export const COLUMNS_DEATHCOUNT = [
     { 
       head: 'Name/Alias', 
       classname: 'name',
-      html: row => (`<a href='${row.url}' target='_blank'>${row.name}</a>`) 
+      html: row => (`<a href='${row.url}' target='_blank' class='link'>${row.name}</a>`) 
     },
     { 
       head: 'Currently Alive', 
@@ -67,7 +67,7 @@ export const COLUMNS_STATS = [
     { 
       head: 'Name/Alias', 
       classname: 'name',
-      html: row => (`<a href='${row.url}' target='_blank'>${row.name}</a>`) 
+      html: row => (`<a href='${row.url}' target='_blank' class='link'>${row.name}</a>`) 
     },
     { 
       head: 'Gender', 
